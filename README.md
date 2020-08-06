@@ -26,11 +26,68 @@
   - dados que estão entre \<tags></ tags>
   - campos específicos de um texto tabulado
   - número de telefone, RG, CPF, cartão de crédito
-  - dados que estão apenas no começo ou no fim da linha
-  mm ...
+  - dados que estão apenas no começo ou no fim da linha...
   
     E mais uma infinidade de outros padrões que não podem ser especificados
   com caracteres literais.
 ---
 
 # Capítulo 2 - Os metacaracteres
+- Aqui estão os metacaraccteres-padrão: 
+  - **. ? * + ^ $ | [] {} () \\**
+
+- Cada simbolo desses tem sua função específica, que pode mudar dependendo do contexto no qual está inserido, e podemos agregá-los uns com os outros, combinando suas funções e fazendo construções mais complexas.
+
+- Além destes, temos outros metacaracteres estendidos que foram criados posteriormente, pois tarefas mais complexas requisitavam funções mais específicas ainda. E para terminar de complicar, sua sintaxe de utilização não é a mesma para todos os programas que suportam expressões regulares.
+
+| Metacaractere | Nome           |
+| :---:         |     :---:      |
+| .             | Ponto          |
+| []            | Lista          |
+| [^]           | Lista Negada   |
+| ?             | Opcional       |
+| *             | Asterisco      |
+| +             | Mais           |
+| {}            | Chaves         |
+| ^             | Circunflexo    |
+| $             | Cifrão         |
+| \b            | Borda          |
+| \             | Escape         |
+| \|            | Ou             |
+| ()            | Grupo          |
+| \1            | Retrovisor     |
+
+**Eles estão divididos em quatro grupos distintos, de acordo com características comuns entre eles.**
+
+## Representantes
+| Metacaractere  | Nome        | Função                        |
+| :---:          | :---:       | :---:                         |
+| .              | Ponto       | Um caractere qualquer         |
+| [...]          | Lista       | Lista de caractere permitidos |
+| [^...]         | Lista Negada| Lista de caractere proibidos  |
+
+## Quantificadores
+
+| Metacaractere  | Nome        | Função                        |
+| :---:          | :---:       | :---:                         |
+| ?              | Opcional    | Zero ou um                    |
+| *              | Asterisco   | Zero, um ou mais              |
+| +              | Mais        | Um ou mais                    |
+| {***n,m***}    | Chaves      | De ***n*** até ***m***        |
+
+## Âncoras
+
+| Metacaractere  | Nome        | Função                        |
+| :---:          | :---:       | :---:                         |
+| ^              | Cirunflexo  | Início da linha               |
+| $              | Cifrão      | Fim da linha                  |
+| \b             | Borda       | Início ou fim de palavra      |
+
+## Outros
+
+| Metacaractere  | Nome        | Função                           |
+| :---:          | :---:       | :---:                            |
+| \c             | Escape      | Torna literal o caractere ***c***|
+| \|             | Ou          | Ou um ou outro                   |
+| (...)          | Grupo       | Delimita um grupo                |
+| \1...\9        | Retrovisor  | Texto casado nos grupos 1...9    |
