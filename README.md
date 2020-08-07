@@ -32,7 +32,7 @@
   com caracteres literais.
 ---
 
-# Capítulo 2 - Os metacaracteres
+# :arrow_forward: Capítulo 2 - Os metacaracteres
 - Aqui estão os metacaraccteres-padrão: 
   - **. ? * + ^ $ | [] {} () \\**
 
@@ -67,7 +67,6 @@
 | [^...]         | Lista Negada| Lista de caractere proibidos  |
 
 ## Quantificadores
-
 | Metacaractere  | Nome        | Função                        |
 | :---:          | :---:       | :---:                         |
 | ?              | Opcional    | Zero ou um                    |
@@ -76,7 +75,6 @@
 | {***n,m***}    | Chaves      | De ***n*** até ***m***        |
 
 ## Âncoras
-
 | Metacaractere  | Nome        | Função                        |
 | :---:          | :---:       | :---:                         |
 | ^              | Cirunflexo  | Início da linha               |
@@ -84,10 +82,37 @@
 | \b             | Borda       | Início ou fim de palavra      |
 
 ## Outros
-
 | Metacaractere  | Nome        | Função                           |
 | :---:          | :---:       | :---:                            |
 | \c             | Escape      | Torna literal o caractere ***c***|
 | \|             | Ou          | Ou um ou outro                   |
 | (...)          | Grupo       | Delimita um grupo                |
 | \1...\9        | Retrovisor  | Texto casado nos grupos 1...9    |
+
+***Os curingas usados na linha de comando para especificar nomes de arquivos, como \*.txt, relatorio.{txt, doc} e foto-??.html não são expressões regulares. São curingas específicos de nomes de arquivo.***
+
+## Metacaracteres tipo Representante
+O primeiro grupo de metacaracteres que veremos são os do tipo representante, ou seja, são metacaracteres cuja função é representar um ou mais caracteres.
+
+***Todos os metacaracteres desse tipo casam a posição de um único caractere, e não mais que um.***
+
+- ### Ponto
+    - O ponto é nosso curinga solitário, que está sempre à procura de um casamento, não importa com quem seja. Pode se um número, uma letra, um Tab, um @.
+
+      Suponhamos uma expressão regular com os caracteres "casa" e o metacaractectere ponto, assim: "fala." Na frase a seguir, essa regex casaria tudo o que está em negrito:
+
+      " O **casa**l que estava no **casa**mento foram para **casa** juntos".
+
+      Como exemplos de uso do ponto, em um texto normal em português,você pode procurar palavras que você não se lembra se acentuou ou não, que podem começar com maiúsculas ou não ou que foram escritas errado:
+        
+        |Expressão | Casa com                            |
+        | :---:    | :---:                               |
+        | n.o      | não, nao, ...                       |
+        | .eclado  | teclado, Teclado, ...               |
+        | e.tendido| estendido, extendido, eztendido, ...|
+    
+    - Resumo
+      - O ponto casa com qualquer coisa.
+      - O ponto casa com o ponto.
+      - O ponto é um curinga para casar um caractere.
+
