@@ -163,7 +163,7 @@ O primeiro grupo de metacaracteres que veremos são os do tipo representante, ou
 
         Note que os colchetes fazem parte da classe e não são os mesmos colchetes da lista. Para dizer maiúsculas, fica [[: upper:]] , ou seja, um [:upper:] dentro de uma lista [].
 
-       ### ! O [[:upper:]] é uma classe Posrx dentro de uma lista.
+       ### ! O [[:upper:]] é uma classe Posix dentro de uma lista.
 
         Então, em uma primeira olhada, [:upper:] é o mesmo que A- Z, letras maiúsculas. Mas a diferença é que essas classes POSIX levam em conta a localidade do sistema.
 
@@ -185,7 +185,7 @@ O primeiro grupo de metacaracteres que veremos são os do tipo representante, ou
           **Todas são equivalentes.**
     
     - Resumo
-      -A lista casa com quem ela conhece e tem suas próprias regras.
+      - A lista casa com quem ela conhece e tem suas próprias regras.
       - Dentro da lista, todo mundo é normal.
       - Dentro da lista, traço indica intervalo.
       - Um - literal deve ser o último item da lista.
