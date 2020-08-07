@@ -99,7 +99,7 @@ O primeiro grupo de metacaracteres que veremos são os do tipo representante, ou
 - ### Ponto
     - O ponto é nosso curinga solitário, que está sempre à procura de um casamento, não importa com quem seja. Pode se um número, uma letra, um Tab, um @.
 
-      Suponhamos uma expressão regular com os caracteres "casa" e o metacaractectere ponto, assim: "fala." Na frase a seguir, essa regex casaria tudo o que está em negrito:
+      Suponhamos uma expressão regular com os caracteres "casa" e o metacaractectere ponto, assim: "casa." Na frase a seguir, essa regex casaria tudo o que está em negrito:
 
       " O **casa**l que estava no **casa**mento foram para **casa** juntos".
 
