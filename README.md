@@ -116,3 +116,79 @@ O primeiro grupo de metacaracteres que veremos são os do tipo representante, ou
       - O ponto casa com o ponto.
       - O ponto é um curinga para casar um caractere.
 
+- ### Lista
+  -  Bem mais exigente que o ponto, a lista, não casa com qualquer um. Ela guarda dentro de si os caracteres permitidos para casar, então algo como [aeiou] limita nosso casamento a letras vogais.
+
+  - No exemplo anterior do ponto, sobre acentuação, tínhamos a regex **n.o**. Além dos casamentos desejados, ela é muito abrangente, e também casa coisas indesejáveis como **neo, n-o, n5o e n o**. Para que essa regex fique mais específica, trocamos o ponto pela lista, para casar apenas "não" e "nao", veja: 
+     - n[ão]o
+    
+    Se colocarmos limites nas regex feitas anteriormente, termos:
+        
+    |Expressão     | Casa com             |
+    | :---:        | :---:                |
+    | n[ãa]o       | não, nao             |
+    | [Tt]eclado   | teclado, Teclado     |
+    | e[sx]tendido | estendido, extendido |
+    | 12[:.]45     | 12:45, 12.45, 12 45  |
+
+    ### ! dentro da lista, todo mundo é normal. Então aquele ponto é simplesmente um ponto normal, e não um metacaractere.
+
+  - **Intervalos em listas**
+    - "Tudo mundo dentro da lista é normal", mas existe execeção à regra. **Todo mundo, fora o traço.** Se tivermos um traço (-) entre dois caracteres, isso representa todo o intervalo entre eles. Assim:
+      - [0123456789] é igual a [0-9].
+    
+      Simplis assim. O traço indica um intervalo, então 0-9 se lê: de zero a nove.
+
+      Os intervalos respeitam a ordem numérica da tabela ASCII, então basta tê-la em mãos para ver que um intervalo como não pega somente as A-z maiúsculas e minúsculas, como era de se esperar.
+
+      ### ! Não use o intervalo A-z, prefira A-Za-z.
+
+   - **Caracteres acentuados (POSIX)**
+     - Como para nós brasileiros se **a-z** não casar letras acentuadas não serve para muita coisa, para isso temos uns curingas para usar dentro de listas. Eles são chamados de classes de caracteres POSIX. São grupos definidos por tipo, e POSIX é um padrão internacional que define esse tipo de regra, como será sua sintaxe etc.
+
+        | Classe POSIX | Similar                | Significa              |
+        | :---:        | :---:                  | :---:                  |
+        | [:upper:]    | [A-Z]                  | Letras maiúsculas      |
+        | [:lower:]    | [a-z]                  | Letras minúsculas      |
+        | [:alpha:]    | [A-Za-z]               | Maiúsculas/Minúsculas  |
+        | [:alnum:]    | [A-Za-z0-9]            | Letras e números       |
+        | [:digit:]    | [0-9]                  | Números                |
+        | [:xdigit:]   | [0-9A-Fa-f]            | Números hexadecimais   |
+        | [:punct:]    | [.' !?:...]            | Sinais de pontuação    |
+        | [:blank:]    | [ \\t]                 | Espaço Tab             |
+        | [:space:]    | [ \\t\\n\\r\\f \\ v]   | Caracteres brancos     |
+        | [:cntr:]     |                        | Caracteres de controle |
+        | [:graph:]    | [A \\t\\n\\r\\f\\v]    | Caracteres imprimíveis |
+        | [:print:]    | [A\\ t \\ n\\ r\\f\\v] | Imprimíveis e o espaço |
+
+        Note que os colchetes fazem parte da classe e não são os mesmos colchetes da lista. Para dizer maiúsculas, fica [[: upper:]] , ou seja, um [:upper:] dentro de uma lista [].
+
+       ### ! O [[:upper:]] é uma classe Posrx dentro de uma lista.
+
+        Então, em uma primeira olhada, [:upper:] é o mesmo que A- Z, letras maiúsculas. Mas a diferença é que essas classes POSIX levam em conta a localidade do sistema.
+
+        Como estamos no Brasil, geralmente nossas máquinas estão configuradas para usar os números no formato nnn.nnn,nn, a data é no formato dd/mm/aaaa, medidas de distância são em centímetros e há outras coisinhas que são diferentes nos demais países.
+
+        Entre outros, também está definido que áéíóú são caracteres válidos em nosso alfabeto, bem como ÁÉÍÓÚ. O [: upper:] leva isso em conta e inclui as letras acentuadas também na lista. O mesmo para o [:lower:], o [:alpha:] e o [:alnum:].
+
+        Por isso, para nós, essas classes POSIX são importantíssimas, e sempre que você tiver de fazer uma regex que procurarão em textos em português, prefira [:alpha:] em vez de A-Za- z, sempre. 
+      
+        Então, refazendo a regex que casava maiúsculas, minúsculas e números, temos:
+        - [[:upper:][:lower:][:digit:]]
+              
+          ou melhor:
+        - [[:alpha:][:digit:]]
+         
+          ou melhor ainda:
+        - [[:alnum:]]
+      
+          **Todas são equivalentes.**
+    
+    - Resumo
+      -A lista casa com quem ela conhece e tem suas próprias regras.
+      - Dentro da lista, todo mundo é normal.
+      - Dentro da lista, traço indica intervalo.
+      - Um - literal deve ser o último item da lista.
+      - Um ] literal deve ser o primeiro item da lista.
+      - Os intervalos respeitam a tabela ASCII (não use A-z).
+      - [:classes POSIX:] incluem acentuação, A-Z não.
