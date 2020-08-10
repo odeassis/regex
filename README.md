@@ -99,7 +99,7 @@ O primeiro grupo de metacaracteres que veremos são os do tipo representante, ou
 - ### Ponto
     - O ponto é nosso curinga solitário, que está sempre à procura de um casamento, não importa com quem seja. Pode se um número, uma letra, um Tab, um @.
 
-      Suponhamos uma expressão regular com os caracteres "casa" e o metacaractectere ponto, assim: "fala." Na frase a seguir, essa regex casaria tudo o que está em negrito:
+      Suponhamos uma expressão regular com os caracteres "casa" e o metacaractectere ponto, assim: "casa." Na frase a seguir, essa regex casaria tudo o que está em negrito:
 
       " O **casa**l que estava no **casa**mento foram para **casa** juntos".
 
@@ -163,7 +163,7 @@ O primeiro grupo de metacaracteres que veremos são os do tipo representante, ou
 
         Note que os colchetes fazem parte da classe e não são os mesmos colchetes da lista. Para dizer maiúsculas, fica [[: upper:]] , ou seja, um [:upper:] dentro de uma lista [].
 
-       ### ! O [[:upper:]] é uma classe Posrx dentro de uma lista.
+       ### ! O [[:upper:]] é uma classe Posix dentro de uma lista.
 
         Então, em uma primeira olhada, [:upper:] é o mesmo que A- Z, letras maiúsculas. Mas a diferença é que essas classes POSIX levam em conta a localidade do sistema.
 
@@ -185,10 +185,14 @@ O primeiro grupo de metacaracteres que veremos são os do tipo representante, ou
           **Todas são equivalentes.**
     
     - Resumo
-      -A lista casa com quem ela conhece e tem suas próprias regras.
+      - A lista casa com quem ela conhece e tem suas próprias regras.
       - Dentro da lista, todo mundo é normal.
       - Dentro da lista, traço indica intervalo.
       - Um - literal deve ser o último item da lista.
       - Um ] literal deve ser o primeiro item da lista.
       - Os intervalos respeitam a tabela ASCII (não use A-z).
+<<<<<<< HEAD
       - [:classes POSIX:] incluem acentuação, A-Z não
+=======
+      - [:classes POSIX:] incluem acentuação, A-Z não.
+>>>>>>> 7abcb82d6811774cbbe24ebda5b906ca780ebc85
