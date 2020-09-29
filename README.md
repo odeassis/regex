@@ -191,8 +191,4 @@ O primeiro grupo de metacaracteres que veremos são os do tipo representante, ou
       - Um - literal deve ser o último item da lista.
       - Um ] literal deve ser o primeiro item da lista.
       - Os intervalos respeitam a tabela ASCII (não use A-z).
-<<<<<<< HEAD
       - [:classes POSIX:] incluem acentuação, A-Z não
-=======
-      - [:classes POSIX:] incluem acentuação, A-Z não.
->>>>>>> 7abcb82d6811774cbbe24ebda5b906ca780ebc85
