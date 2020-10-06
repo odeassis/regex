@@ -10,7 +10,7 @@
 
 ## Para que servem?
 
-- Basicamente servem para você dizer algo abrangente de forma específica. Defi nido seu padrão de busca, você tem uma lista (finita ou não) de possibilidades de casamento (match).
+- Basicamente servem para você dizer algo abrangente de forma específica. Definido seu padrão de busca, você tem uma lista (finita ou não) de possibilidades de casamento (match).
 
 - Na prática, as expressões regulares servem para uma infinidade de tarefas. Elas são úteis sempre que você precisar buscar ou validar um padrão de texto que pode ser variável, como:
 
@@ -34,7 +34,7 @@
 
 # :arrow_forward: Capítulo 2 - Os metacaracteres
 - Aqui estão os metacaraccteres-padrão: 
-  - **. ? * + ^ $ | [] {} () \\**
+    **. ? * + ^ $ | [] {} () \\**
 
 - Cada simbolo desses tem sua função específica, que pode mudar dependendo do contexto no qual está inserido, e podemos agregá-los uns com os outros, combinando suas funções e fazendo construções mais complexas.
 
